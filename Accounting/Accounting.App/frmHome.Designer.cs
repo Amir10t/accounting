@@ -1,6 +1,6 @@
 ﻿namespace Accounting.App
 {
-    partial class Form1
+    partial class frmHome
     {
         /// <summary>
         /// Required designer variable.
@@ -30,10 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.Text = "frmHome";
         }
 
         #endregion
     }
 }
-
