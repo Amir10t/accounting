@@ -7,21 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Accounting.App.Mobiles;
 
-namespace Accounting.App
+namespace Accounting.App.Mobiles
 {
-    public partial class frmHome : Form
+    public partial class frmMobile : Form
     {
-        public frmHome()
+        public frmMobile()
         {
             InitializeComponent();
-        }
-
-        private void btnMobile_Click(object sender, EventArgs e)
-        {
-            frmMobile frm = new frmMobile();
-            frm.ShowDialog();
         }
     }
 }
