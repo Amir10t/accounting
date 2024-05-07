@@ -30,11 +30,11 @@
         {
             this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnSetting = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.txtSearch = new System.Windows.Forms.ToolStripTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnSetting = new System.Windows.Forms.ToolStripButton();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
@@ -56,6 +56,7 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnSetting,
@@ -65,25 +66,34 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.toolStrip1.Size = new System.Drawing.Size(627, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(627, 43);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSetting.Image = global::Accounting.App.Properties.Resources.icons8_setting_64;
+            this.btnSetting.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(24, 40);
+            this.btnSetting.Text = "toolStripButton1";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 43);
             // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(64, 24);
+            this.toolStripLabel1.Size = new System.Drawing.Size(64, 40);
             this.toolStripLabel1.Text = "جستجو :‌ ";
             // 
             // txtSearch
             // 
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(100, 27);
+            this.txtSearch.Size = new System.Drawing.Size(100, 43);
             // 
             // groupBox1
             // 
@@ -97,15 +107,6 @@
             this.groupBox1.Size = new System.Drawing.Size(155, 553);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            // 
-            // btnSetting
-            // 
-            this.btnSetting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnSetting.Image = global::Accounting.App.Properties.Resources.icons8_setting_64;
-            this.btnSetting.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(24, 24);
-            this.btnSetting.Text = "toolStripButton1";
             // 
             // btnDelete
             // 
