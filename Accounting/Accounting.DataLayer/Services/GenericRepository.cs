@@ -64,4 +64,3 @@ namespace Accounting.DataLayer.Services
         }
     }
 }
-}

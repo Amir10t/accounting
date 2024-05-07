@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgbMobiles = new System.Windows.Forms.DataGridView();
+            this.dgvMobiles = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnAddMobile = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -39,19 +39,31 @@
             this.btnRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.txtSearch = new System.Windows.Forms.ToolStripTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgbMobiles)).BeginInit();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMobiles)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgbMobiles
+            // dgvMobiles
             // 
-            this.dgbMobiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgbMobiles.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgbMobiles.Location = new System.Drawing.Point(0, 83);
-            this.dgbMobiles.Name = "dgbMobiles";
-            this.dgbMobiles.RowTemplate.Height = 24;
-            this.dgbMobiles.Size = new System.Drawing.Size(682, 370);
-            this.dgbMobiles.TabIndex = 2;
+            this.dgvMobiles.AllowUserToAddRows = false;
+            this.dgvMobiles.AllowUserToDeleteRows = false;
+            this.dgvMobiles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMobiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMobiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
+            this.dgvMobiles.Location = new System.Drawing.Point(1, 94);
+            this.dgvMobiles.Name = "dgvMobiles";
+            this.dgvMobiles.ReadOnly = true;
+            this.dgvMobiles.RowTemplate.Height = 24;
+            this.dgvMobiles.Size = new System.Drawing.Size(677, 359);
+            this.dgvMobiles.TabIndex = 2;
             // 
             // toolStrip1
             // 
@@ -129,6 +141,7 @@
             this.btnRefresh.Size = new System.Drawing.Size(76, 88);
             this.btnRefresh.Text = "بروزرسانی";
             this.btnRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // toolStripLabel1
             // 
@@ -142,6 +155,39 @@
             this.txtSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(100, 91);
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MobileID";
+            this.Column1.HeaderText = "موبایل ای دی";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Model";
+            this.Column2.FillWeight = 46.94836F;
+            this.Column2.HeaderText = "مدل موبایل";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Brand";
+            this.Column3.FillWeight = 102.9197F;
+            this.Column3.HeaderText = "برند موبایل";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Amount";
+            this.Column4.FillWeight = 150.1319F;
+            this.Column4.HeaderText = "قیمت موبایل";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // frmMobile
             // 
@@ -149,12 +195,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 453);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.dgbMobiles);
+            this.Controls.Add(this.dgvMobiles);
             this.Name = "frmMobile";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "کنترل موبایل ها";
-            ((System.ComponentModel.ISupportInitialize)(this.dgbMobiles)).EndInit();
+            this.Load += new System.EventHandler(this.frmMobile_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMobiles)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -164,7 +211,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgbMobiles;
+        private System.Windows.Forms.DataGridView dgvMobiles;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnAddMobile;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -175,5 +222,9 @@
         private System.Windows.Forms.ToolStripButton btnRefresh;
         private System.Windows.Forms.ToolStripTextBox txtSearch;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }
