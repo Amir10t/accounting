@@ -58,6 +58,12 @@
     <Compile Include="frmHome.Designer.cs">
       <DependentUpon>frmHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mobiles\frmAddOrEditMobile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mobiles\frmAddOrEditMobile.Designer.cs">
+      <DependentUpon>frmAddOrEditMobile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mobiles\frmMobile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mobiles\frmAddOrEditMobile.resx">
+      <DependentUpon>frmAddOrEditMobile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mobiles\frmMobile.resx">
       <DependentUpon>frmMobile.cs</DependentUpon>

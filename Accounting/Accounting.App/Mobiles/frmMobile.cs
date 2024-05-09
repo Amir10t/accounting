@@ -49,5 +49,40 @@ namespace Accounting.App.Mobiles
             Refresh();
             txtSearch.Text = "";
         }
+
+        private void btnAddMobile_Click(object sender, EventArgs e)
+        {
+            frmAddOrEditMobile frm = new frmAddOrEditMobile();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                Refresh();
+            }
+        }
+
+        private void btnEditMobile_Click(object sender, EventArgs e)
+        {
+            int MobileID = (int)dgvMobiles.CurrentRow.Cells[0].Value;
+            frmAddOrEditMobile frm = new frmAddOrEditMobile();
+            frm.MobileID = MobileID;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                Refresh();
+            }
+        }
+
+        private void btnDeleteMobile_Click(object sender, EventArgs e)
+        {
+            using (UnitOfWork db = new UnitOfWork())
+            {
+                int MobileID = (int)dgvMobiles.CurrentRow.Cells[0].Value;
+                var mobile = db.MobileRepository.GetById(MobileID);
+                if (MessageBox.Show($"ایا از حذف {mobile.Model} مطمین هستید", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    db.MobileRepository.Delete(mobile);
+                    db.Save();
+                    Refresh();
+                }
+            }
+        }
     }
 }
