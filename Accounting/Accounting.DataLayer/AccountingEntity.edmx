@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MOAccountingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MOAccountingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="MobileModel">
           <Key>
             <PropertyRef Name="MobileID" />
@@ -15,11 +15,38 @@
           <Property Name="Amount" Type="varchar" MaxLength="150" />
           <Property Name="Picture" Type="nvarchar" MaxLength="150" />
         </EntityType>
+        <EntityType Name="OrderModel">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MobileID" Type="int" Nullable="false" />
+          <Property Name="MobileModel" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_OrderModel_MobileModel">
+          <End Role="MobileModel" Type="Self.MobileModel" Multiplicity="1" />
+          <End Role="OrderModel" Type="Self.OrderModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MobileModel">
+              <PropertyRef Name="MobileID" />
+            </Principal>
+            <Dependent Role="OrderModel">
+              <PropertyRef Name="MobileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="MOAccountingModelStoreContainer">
           <EntitySet Name="MobileModel" EntityType="Self.MobileModel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderModel" EntityType="Self.OrderModel" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_OrderModel_MobileModel" Association="Self.FK_OrderModel_MobileModel">
+            <End Role="MobileModel" EntitySet="MobileModel" />
+            <End Role="OrderModel" EntitySet="OrderModel" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MOAccountingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -32,10 +59,40 @@
           <Property Name="Brand" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Amount" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Picture" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="OrderModels" Relationship="MOAccountingModel.FK_OrderModel_MobileModel" FromRole="MobileModel" ToRole="OrderModel" />
         </EntityType>
         <EntityContainer Name="MOAccountingEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="MobileModels" EntityType="Self.MobileModel" />
+          <EntitySet Name="OrderModels" EntityType="MOAccountingModel.OrderModel" />
+          <AssociationSet Name="FK_OrderModel_MobileModel" Association="MOAccountingModel.FK_OrderModel_MobileModel">
+            <End Role="MobileModel" EntitySet="MobileModels" />
+            <End Role="OrderModel" EntitySet="OrderModels" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="OrderModel">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MobileID" Type="Int32" Nullable="false" />
+          <Property Name="MobileModel" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="MobileModel1" Relationship="MOAccountingModel.FK_OrderModel_MobileModel" FromRole="OrderModel" ToRole="MobileModel" />
+        </EntityType>
+        <Association Name="FK_OrderModel_MobileModel">
+          <End Type="MOAccountingModel.MobileModel" Role="MobileModel" Multiplicity="1" />
+          <End Type="MOAccountingModel.OrderModel" Role="OrderModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MobileModel">
+              <PropertyRef Name="MobileID" />
+            </Principal>
+            <Dependent Role="OrderModel">
+              <PropertyRef Name="MobileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -50,6 +107,18 @@
                 <ScalarProperty Name="Brand" ColumnName="Brand" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="Picture" ColumnName="Picture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderModels">
+            <EntityTypeMapping TypeName="MOAccountingModel.OrderModel">
+              <MappingFragment StoreEntitySet="OrderModel">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="MobileModel" ColumnName="MobileModel" />
+                <ScalarProperty Name="MobileID" ColumnName="MobileID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

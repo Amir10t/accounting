@@ -26,5 +26,6 @@ namespace Accounting.DataLayer
         }
     
         public virtual DbSet<MobileModel> MobileModels { get; set; }
+        public virtual DbSet<OrderModel> OrderModels { get; set; }
     }
 }

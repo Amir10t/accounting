@@ -4,8 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a0a1f28862e24a68a4e7fc40a7dbe432" Name="Diagram1">
+      <Diagram DiagramId="a0a1f28862e24a68a4e7fc40a7dbe432" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="MOAccountingModel.MobileModel" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MOAccountingModel.OrderModel" Width="1.5" PointX="3" PointY="5" />
+        <AssociationConnector Association="MOAccountingModel.FK_OrderModel_MobileModel" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

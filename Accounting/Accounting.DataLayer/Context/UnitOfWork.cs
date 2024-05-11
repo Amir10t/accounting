@@ -26,6 +26,21 @@ namespace Accounting.DataLayer.Context
             }
         }
 
+        private GenericRepository<OrderModel> _orderRepository;
+
+        public GenericRepository<OrderModel> OrderRepository
+        {
+            get
+            {
+                if (_orderRepository == null)
+                {
+                    _orderRepository = new GenericRepository<OrderModel>(db);
+                }
+
+                return _orderRepository;
+            }
+        }
+
         public void Save()
         {
             db.SaveChanges();
