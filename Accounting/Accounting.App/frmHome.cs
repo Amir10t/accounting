@@ -67,5 +67,14 @@ namespace Accounting.App
             Refresh();
             txtSearch.Text = "";
         }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            frmAddOrEditOrder frm = new frmAddOrEditOrder();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                Refresh();
+            }
+        }
     }
 }
