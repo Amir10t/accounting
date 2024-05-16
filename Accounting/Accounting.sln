@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.DataLayer", "Acc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Utility", "Accounting.Utility\Accounting.Utility.csproj", "{C49F9D31-873F-49F0-BD17-A35CD801AEF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.ViewModel", "Accounting.ViewModel\Accounting.ViewModel.csproj", "{4A785BE7-B83C-4EEB-846C-8B0AA214006B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C49F9D31-873F-49F0-BD17-A35CD801AEF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C49F9D31-873F-49F0-BD17-A35CD801AEF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C49F9D31-873F-49F0-BD17-A35CD801AEF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A785BE7-B83C-4EEB-846C-8B0AA214006B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A785BE7-B83C-4EEB-846C-8B0AA214006B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A785BE7-B83C-4EEB-846C-8B0AA214006B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A785BE7-B83C-4EEB-846C-8B0AA214006B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

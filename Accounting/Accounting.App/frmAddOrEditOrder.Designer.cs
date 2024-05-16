@@ -156,6 +156,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmAddOrEditOrder";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "افزودن سفارش";
             this.Load += new System.EventHandler(this.frmAddOrEditOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).EndInit();

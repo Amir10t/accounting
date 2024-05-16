@@ -21,7 +21,6 @@ namespace Accounting.DataLayer.Context
                 {
                     _mobileRepository = new GenericRepository<MobileModel>(db);
                 }
-
                 return _mobileRepository;
             }
         }

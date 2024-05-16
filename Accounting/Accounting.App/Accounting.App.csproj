@@ -154,6 +154,10 @@
       <Project>{db0cc2ec-163e-4fc6-a482-388ab391b17a}</Project>
       <Name>Accounting.DataLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Accounting.ViewModel\Accounting.ViewModel.csproj">
+      <Project>{4a785be7-b83c-4eeb-846c-8b0aa214006b}</Project>
+      <Name>Accounting.ViewModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

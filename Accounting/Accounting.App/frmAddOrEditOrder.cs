@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Accounting.DataLayer;
 using Accounting.DataLayer.Context;
+using Accounting.ViewModel.Mobiles;
 
 namespace Accounting.App
 {
@@ -21,12 +22,7 @@ namespace Accounting.App
 
         private void radioButton1_Click(object sender, EventArgs e)
         {
-            //txtAmount.ReadOnly = false;
-            using (UnitOfWork db = new UnitOfWork())
-            {
-                txtDescription.Text = Convert.ToString(db.MobileRepository.Get(m => m.Model == cbMobiles.SelectedValue).Select(m => m.MobileID)).ToString();
-
-            }
+            txtAmount.ReadOnly = false;
         }
 
         private void rbOwnAmount_CheckedChanged(object sender, EventArgs e)
@@ -38,10 +34,9 @@ namespace Accounting.App
         {
             using (UnitOfWork db = new UnitOfWork())
             {
-                var mo = db.MobileRepository.Get(m => m.Model == cbMobiles.Text).Select(m => m.MobileID);
                 OrderModel order = new OrderModel()
                 {
-                    MobileID = mo,
+                    MobileID = Convert.ToInt32(cbMobiles.SelectedValue.ToString()),
                     MobileModel = cbMobiles.Text,
                     Date = DateTime.Now,
                     Amount = (int)nudAmount.Value,
@@ -57,12 +52,16 @@ namespace Accounting.App
         {
             using (UnitOfWork db = new UnitOfWork())
             {
-                var mobiles = db.MobileRepository.Get().Select(m => m.Model).ToList();
+                List<MobileList> list = new List<MobileList>();
+                list.Add(new MobileList() { MobileID = 0, MobileModel = "انتخاب کنید" });
+                var mobiles = db.MobileRepository.Get();
                 foreach (var mobile in mobiles)
                 {
-                    cbMobiles.Items.Add(mobile);
-                    txtDescription.Text += mobile.ToString();
+                    list.Add(new MobileList() { MobileID = mobile.MobileID, MobileModel = mobile.Model });
                 }
+                cbMobiles.DataSource = list;
+                cbMobiles.DisplayMember = "MobileModel";
+                cbMobiles.ValueMember = "MobileID";
             }
         }
     }
