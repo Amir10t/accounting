@@ -21,7 +21,12 @@ namespace Accounting.App
 
         private void radioButton1_Click(object sender, EventArgs e)
         {
-            txtAmount.ReadOnly = false;
+            //txtAmount.ReadOnly = false;
+            using (UnitOfWork db = new UnitOfWork())
+            {
+                txtDescription.Text = Convert.ToString(db.MobileRepository.Get(m => m.Model == cbMobiles.SelectedValue).Select(m => m.MobileID)).ToString();
+
+            }
         }
 
         private void rbOwnAmount_CheckedChanged(object sender, EventArgs e)
@@ -33,14 +38,16 @@ namespace Accounting.App
         {
             using (UnitOfWork db = new UnitOfWork())
             {
+                var mo = db.MobileRepository.Get(m => m.Model == cbMobiles.Text).Select(m => m.MobileID);
                 OrderModel order = new OrderModel()
                 {
-                    MobileID = Convert.ToInt32(db.MobileRepository.Get(m => m.Model == cbMobiles.SelectedValue).Select(m => m.MobileID)),
+                    MobileID = mo,
+                    MobileModel = cbMobiles.Text,
                     Date = DateTime.Now,
                     Amount = (int)nudAmount.Value,
                     Description = txtDescription.Text
                 };
-
+                db.OrderRepository.Insert(order);
                 db.Save();
                 DialogResult = DialogResult.OK;
             }
