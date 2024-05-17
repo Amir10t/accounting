@@ -76,5 +76,15 @@ namespace Accounting.App
                 Refresh();
             }
         }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            frmAddOrEditOrder frm = new frmAddOrEditOrder();
+            frm.OrderID = (int)dgvOrders.CurrentRow.Cells[0].Value;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                Refresh();
+            }
+        }
     }
 }

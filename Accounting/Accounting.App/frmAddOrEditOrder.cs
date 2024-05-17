@@ -15,6 +15,7 @@ namespace Accounting.App
 {
     public partial class frmAddOrEditOrder : Form
     {
+        public int OrderID = 0;
         public frmAddOrEditOrder()
         {
             InitializeComponent();
@@ -32,19 +33,37 @@ namespace Accounting.App
 
         private void btnSumbit_Click(object sender, EventArgs e)
         {
-            using (UnitOfWork db = new UnitOfWork())
+            if (OrderID == 0)
             {
-                OrderModel order = new OrderModel()
+                using (UnitOfWork db = new UnitOfWork())
                 {
-                    MobileID = Convert.ToInt32(cbMobiles.SelectedValue.ToString()),
-                    MobileModel = cbMobiles.Text,
-                    Date = DateTime.Now,
-                    Amount = (int)nudAmount.Value,
-                    Description = txtDescription.Text
-                };
-                db.OrderRepository.Insert(order);
-                db.Save();
-                DialogResult = DialogResult.OK;
+                    OrderModel order = new OrderModel()
+                    {
+                        MobileID = Convert.ToInt32(cbMobiles.SelectedValue.ToString()),
+                        MobileModel = cbMobiles.Text,
+                        Date = DateTime.Now,
+                        Amount = (int)nudAmount.Value,
+                        Description = txtDescription.Text
+                    };
+                    db.OrderRepository.Insert(order);
+                    db.Save();
+                    DialogResult = DialogResult.OK;
+                }
+            }
+            else
+            {
+                using (UnitOfWork db = new UnitOfWork())
+                {
+                    var order = db.OrderRepository.GetById(OrderID);
+                    order.MobileID = Convert.ToInt32(cbMobiles.SelectedValue.ToString());
+                    order.MobileModel = cbMobiles.Text;
+                    order.Amount = (int)nudAmount.Value;
+                    order.Description = txtDescription.Text;
+
+                    db.OrderRepository.Update(order);
+                    db.Save();
+                    DialogResult = DialogResult.OK;
+                }
             }
         }
 
@@ -53,7 +72,19 @@ namespace Accounting.App
             using (UnitOfWork db = new UnitOfWork())
             {
                 List<MobileList> list = new List<MobileList>();
-                list.Add(new MobileList() { MobileID = 0, MobileModel = "انتخاب کنید" });
+                if (OrderID != 0)
+                {
+                    this.Text = "ویرایش سفارش";
+                    btnSumbit.Text = "ویرایش";
+                    var order = db.OrderRepository.GetById(OrderID);
+                    nudAmount.Value = order.Amount;
+                    txtDescription.Text = order.Description;
+                    list.Add(new MobileList() { MobileID = order.MobileID, MobileModel = order.MobileModel });
+                }
+                else
+                {
+                    list.Add(new MobileList() { MobileID = 0, MobileModel = "انتخاب کنید" });
+                }
                 var mobiles = db.MobileRepository.Get();
                 foreach (var mobile in mobiles)
                 {

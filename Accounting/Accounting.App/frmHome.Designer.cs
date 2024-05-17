@@ -209,6 +209,7 @@
             this.btnEdit.Text = "ویرایش";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnOrder
             // 
