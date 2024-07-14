@@ -51,58 +51,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountingEntity.Context.cs">
+    <Compile Include="AccountingModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AccountingEntity.Context.tt</DependentUpon>
+      <DependentUpon>AccountingModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="AccountingEntity.cs">
+    <Compile Include="AccountingModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AccountingEntity.tt</DependentUpon>
+      <DependentUpon>AccountingModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AccountingEntity.Designer.cs">
+    <Compile Include="AccountingModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AccountingEntity.edmx</DependentUpon>
+      <DependentUpon>AccountingModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Context\UnitOfWork.cs" />
-    <Compile Include="MobileModel.cs">
-      <DependentUpon>AccountingEntity.tt</DependentUpon>
+    <Compile Include="Order.cs">
+      <DependentUpon>AccountingModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="OrderModel.cs">
-      <DependentUpon>AccountingEntity.tt</DependentUpon>
+    <Compile Include="Product.cs">
+      <DependentUpon>AccountingModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\GenericRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="AccountingEntity.edmx">
+    <EntityDeploy Include="AccountingModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AccountingEntity.Designer.cs</LastGenOutput>
+      <LastGenOutput>AccountingModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="AccountingEntity.edmx.diagram">
-      <DependentUpon>AccountingEntity.edmx</DependentUpon>
+    <None Include="AccountingModel.edmx.diagram">
+      <DependentUpon>AccountingModel.edmx</DependentUpon>
     </None>
     <None Include="App.Config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AccountingEntity.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AccountingEntity.edmx</DependentUpon>
-      <LastGenOutput>AccountingEntity.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="AccountingEntity.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AccountingEntity.edmx</DependentUpon>
-      <LastGenOutput>AccountingEntity.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="AccountingModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AccountingModel.edmx</DependentUpon>
+      <LastGenOutput>AccountingModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AccountingModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AccountingModel.edmx</DependentUpon>
+      <LastGenOutput>AccountingModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

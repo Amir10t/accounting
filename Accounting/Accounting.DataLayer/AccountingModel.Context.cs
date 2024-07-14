@@ -13,10 +13,10 @@ namespace Accounting.DataLayer
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MOAccountingEntities : DbContext
+    public partial class Accounting_DBEntities : DbContext
     {
-        public MOAccountingEntities()
-            : base("name=MOAccountingEntities")
+        public Accounting_DBEntities()
+            : base("name=Accounting_DBEntities")
         {
         }
     
@@ -25,7 +25,7 @@ namespace Accounting.DataLayer
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<MobileModel> MobileModels { get; set; }
-        public virtual DbSet<OrderModel> OrderModels { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
     }
 }

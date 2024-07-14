@@ -10,10 +10,10 @@ namespace Accounting.DataLayer.Services
 {
     public class GenericRepository<TEntity> where TEntity : class
     {
-        private MOAccountingEntities _db;
+        private Accounting_DBEntities _db;
         private DbSet<TEntity> _dbset;
 
-        public GenericRepository(MOAccountingEntities db)
+        public GenericRepository(Accounting_DBEntities db)
         {
             _db = db;
             _dbset = _db.Set<TEntity>();

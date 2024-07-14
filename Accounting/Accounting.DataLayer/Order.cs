@@ -12,15 +12,14 @@ namespace Accounting.DataLayer
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderModel
+    public partial class Order
     {
         public int OrderID { get; set; }
-        public int MobileID { get; set; }
-        public string MobileModel { get; set; }
+        public int ProductID { get; set; }
         public int Amount { get; set; }
         public string Description { get; set; }
-        public System.DateTime Date { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
     
-        public virtual MobileModel MobileModel1 { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

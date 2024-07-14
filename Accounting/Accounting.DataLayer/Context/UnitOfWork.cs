@@ -9,31 +9,31 @@ namespace Accounting.DataLayer.Context
 {
     public class UnitOfWork : IDisposable
     {
-        MOAccountingEntities db = new MOAccountingEntities();
+        Accounting_DBEntities db = new Accounting_DBEntities();
 
-        private GenericRepository<MobileModel> _mobileRepository;
+        private GenericRepository<Product> _productRepository;
 
-        public GenericRepository<MobileModel> MobileRepository
+        public GenericRepository<Product> ProductRepository
         {
             get
             {
-                if (_mobileRepository == null)
+                if (_productRepository == null)
                 {
-                    _mobileRepository = new GenericRepository<MobileModel>(db);
+                    _productRepository = new GenericRepository<Product>(db);
                 }
-                return _mobileRepository;
+                return _productRepository;
             }
         }
 
-        private GenericRepository<OrderModel> _orderRepository;
+        private GenericRepository<Order> _orderRepository;
 
-        public GenericRepository<OrderModel> OrderRepository
+        public GenericRepository<Order> OrderRepository
         {
             get
             {
                 if (_orderRepository == null)
                 {
-                    _orderRepository = new GenericRepository<OrderModel>(db);
+                    _orderRepository = new GenericRepository<Order>(db);
                 }
 
                 return _orderRepository;

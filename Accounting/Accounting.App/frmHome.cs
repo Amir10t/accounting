@@ -21,70 +21,70 @@ namespace Accounting.App
 
         private void btnMobile_Click(object sender, EventArgs e)
         {
-            frmMobile frm = new frmMobile();
-            frm.ShowDialog();
+            //    frmMobile frm = new frmMobile();
+            //    frm.ShowDialog();
         }
 
         private void frmHome_Load(object sender, EventArgs e)
         {
-            Refresh();
+            //    Refresh();
         }
 
-        void Refresh()
-        {
-            using (UnitOfWork db = new UnitOfWork())
-            {
-                dgvOrders.AutoGenerateColumns = false;
-                dgvOrders.DataSource = db.OrderRepository.Get();
-            }
-        }
+        //void Refresh()
+        //{
+        //    using (UnitOfWork db = new UnitOfWork())
+        //    {
+        //        dgvOrders.AutoGenerateColumns = false;
+        //        dgvOrders.DataSource = db.OrderRepository.Get();
+        //    }
+        //}
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            using (UnitOfWork db = new UnitOfWork())
-            {
-                dgvOrders.DataSource = db.OrderRepository.Get(o => o.MobileModel.Contains(txtSearch.Text) || o.Description.Contains(txtSearch.Text));
-            }
+            //    using (UnitOfWork db = new UnitOfWork())
+            //    {
+            //        //dgvOrders.DataSource = db.OrderRepository.Get(o => o..Contains(txtSearch.Text) || o.Description.Contains(txtSearch.Text));
+            //    }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            using (UnitOfWork db = new UnitOfWork())
-            {
-                int OrderID = (int)dgvOrders.CurrentRow.Cells[0].Value;
-                var order = db.OrderRepository.GetById(OrderID);
-                if (MessageBox.Show($"ایا از حذف {order.MobileModel} مطمین هستید", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                {
-                    db.OrderRepository.Delete(order);
-                    db.Save();
-                    Refresh();
-                }
-            }
+            //    using (UnitOfWork db = new UnitOfWork())
+            //    {
+            //        int OrderID = (int)dgvOrders.CurrentRow.Cells[0].Value;
+            //        var order = db.OrderRepository.GetById(OrderID);
+            //        if (MessageBox.Show($"ایا از حذف {order.Product} مطمین هستید", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            //        {
+            //            db.OrderRepository.Delete(order);
+            //            db.Save();
+            //            Refresh();
+            //        }
+            //    }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            Refresh();
-            txtSearch.Text = "";
+            //    Refresh();
+            //    txtSearch.Text = "";
         }
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            frmAddOrEditOrder frm = new frmAddOrEditOrder();
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                Refresh();
-            }
+            //    frmAddOrEditOrder frm = new frmAddOrEditOrder();
+            //    if (frm.ShowDialog() == DialogResult.OK)
+            //    {
+            //        Refresh();
+            //    }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            frmAddOrEditOrder frm = new frmAddOrEditOrder();
-            frm.OrderID = (int)dgvOrders.CurrentRow.Cells[0].Value;
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                Refresh();
-            }
+            //    frmAddOrEditOrder frm = new frmAddOrEditOrder();
+            //    frm.OrderID = (int)dgvOrders.CurrentRow.Cells[0].Value;
+            //    if (frm.ShowDialog() == DialogResult.OK)
+            //    {
+            //        Refresh();
+            //    }
         }
     }
 }

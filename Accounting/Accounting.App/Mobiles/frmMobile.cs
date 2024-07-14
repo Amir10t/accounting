@@ -20,69 +20,69 @@ namespace Accounting.App.Mobiles
 
         private void frmMobile_Load(object sender, EventArgs e)
         {
-            using (UnitOfWork db = new UnitOfWork())
-            {
-                dgvMobiles.AutoGenerateColumns = false;
-                dgvMobiles.DataSource = db.MobileRepository.Get();
-            }
+            //    using (UnitOfWork db = new UnitOfWork())
+            //    {
+            //        dgvMobiles.AutoGenerateColumns = false;
+            //        dgvMobiles.DataSource = db.MobileRepository.Get();
+            //    }
         }
 
-        void Refresh()
-        {
-            using (UnitOfWork db = new UnitOfWork())
-            {
-                dgvMobiles.AutoGenerateColumns = false;
-                dgvMobiles.DataSource = db.MobileRepository.Get();
-            }
-        }
+        //void Refresh()
+        //{
+        //    using (UnitOfWork db = new UnitOfWork())
+        //    {
+        //        dgvMobiles.AutoGenerateColumns = false;
+        //        dgvMobiles.DataSource = db.ProductRepository.Get();
+        //    }
+        //}
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            using (UnitOfWork db = new UnitOfWork())
-            {
-                dgvMobiles.DataSource = db.MobileRepository.Get(m=> m.Model.Contains(txtSearch.Text)|| m.Brand.Contains(txtSearch.Text) || m.Amount.Contains(txtSearch.Text));
-            }
+            //        using (UnitOfWork db = new UnitOfWork())
+            //        {
+            //            dgvMobiles.DataSource = db.MobileRepository.Get(m=> m.Model.Contains(txtSearch.Text)|| m.Brand.Contains(txtSearch.Text) || m.Amount.Contains(txtSearch.Text));
+            //        }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            Refresh();
-            txtSearch.Text = "";
+            //        Refresh();
+            //        txtSearch.Text = "";
         }
 
         private void btnAddMobile_Click(object sender, EventArgs e)
         {
-            frmAddOrEditMobile frm = new frmAddOrEditMobile();
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                Refresh();
-            }
+            //        frmAddOrEditMobile frm = new frmAddOrEditMobile();
+            //        if (frm.ShowDialog() == DialogResult.OK)
+            //        {
+            //            Refresh();
+            //        }
         }
 
         private void btnEditMobile_Click(object sender, EventArgs e)
         {
-            int MobileID = (int)dgvMobiles.CurrentRow.Cells[0].Value;
-            frmAddOrEditMobile frm = new frmAddOrEditMobile();
-            frm.MobileID = MobileID;
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                Refresh();
-            }
+            //        int MobileID = (int)dgvMobiles.CurrentRow.Cells[0].Value;
+            //        frmAddOrEditMobile frm = new frmAddOrEditMobile();
+            //        frm.MobileID = MobileID;
+            //        if (frm.ShowDialog() == DialogResult.OK)
+            //        {
+            //            Refresh();
+            //        }
         }
 
         private void btnDeleteMobile_Click(object sender, EventArgs e)
         {
-            using (UnitOfWork db = new UnitOfWork())
-            {
-                int MobileID = (int)dgvMobiles.CurrentRow.Cells[0].Value;
-                var mobile = db.MobileRepository.GetById(MobileID);
-                if (MessageBox.Show($"ایا از حذف {mobile.Model} مطمین هستید", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                {
-                    db.MobileRepository.Delete(mobile);
-                    db.Save();
-                    Refresh();
-                }
-            }
+            //        using (UnitOfWork db = new UnitOfWork())
+            //        {
+            //            int MobileID = (int)dgvMobiles.CurrentRow.Cells[0].Value;
+            //            var mobile = db.MobileRepository.GetById(MobileID);
+            //            if (MessageBox.Show($"ایا از حذف {mobile.Model} مطمین هستید", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            //            {
+            //                db.MobileRepository.Delete(mobile);
+            //                db.Save();
+            //                Refresh();
+            //            }
+            //        }
         }
     }
 }

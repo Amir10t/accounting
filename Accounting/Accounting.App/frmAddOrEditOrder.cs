@@ -37,10 +37,10 @@ namespace Accounting.App
             {
                 using (UnitOfWork db = new UnitOfWork())
                 {
-                    OrderModel order = new OrderModel()
+                    Order order = new Order()
                     {
-                        MobileID = Convert.ToInt32(cbMobiles.SelectedValue.ToString()),
-                        MobileModel = cbMobiles.Text,
+                        ProductID = Convert.ToInt32(cbMobiles.SelectedValue.ToString()),
+                        //MobileModel = cbMobiles.Text,
                         Date = DateTime.Now,
                         Amount = (int)nudAmount.Value,
                         Description = txtDescription.Text
@@ -55,8 +55,8 @@ namespace Accounting.App
                 using (UnitOfWork db = new UnitOfWork())
                 {
                     var order = db.OrderRepository.GetById(OrderID);
-                    order.MobileID = Convert.ToInt32(cbMobiles.SelectedValue.ToString());
-                    order.MobileModel = cbMobiles.Text;
+                    order.ProductID = Convert.ToInt32(cbMobiles.SelectedValue.ToString());
+                    //order.MobileModel = cbMobiles.Text;
                     order.Amount = (int)nudAmount.Value;
                     order.Description = txtDescription.Text;
 
@@ -79,17 +79,17 @@ namespace Accounting.App
                     var order = db.OrderRepository.GetById(OrderID);
                     nudAmount.Value = order.Amount;
                     txtDescription.Text = order.Description;
-                    list.Add(new MobileList() { MobileID = order.MobileID, MobileModel = order.MobileModel });
+                    //list.Add(new MobileList() { MobileID = order.ProductID, MobileModel = order.MobileModel });
                 }
                 else
                 {
                     list.Add(new MobileList() { MobileID = 0, MobileModel = "انتخاب کنید" });
                 }
-                var mobiles = db.MobileRepository.Get();
-                foreach (var mobile in mobiles)
-                {
-                    list.Add(new MobileList() { MobileID = mobile.MobileID, MobileModel = mobile.Model });
-                }
+                var products = db.ProductRepository.Get();
+                //foreach (var product in products)
+                //{
+                //    list.Add(new MobileList() { MobileID = product.MobileID, MobileModel = product.Model });
+                //}
                 cbMobiles.DataSource = list;
                 cbMobiles.DisplayMember = "MobileModel";
                 cbMobiles.ValueMember = "MobileID";

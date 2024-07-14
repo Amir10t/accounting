@@ -12,21 +12,21 @@ namespace Accounting.DataLayer
     using System;
     using System.Collections.Generic;
     
-    public partial class MobileModel
+    public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MobileModel()
+        public Product()
         {
-            this.OrderModels = new HashSet<OrderModel>();
+            this.Orders = new HashSet<Order>();
         }
     
-        public int MobileID { get; set; }
-        public string Model { get; set; }
-        public string Brand { get; set; }
-        public string Amount { get; set; }
-        public string Picture { get; set; }
+        public int ProductID { get; set; }
+        public string ProductName { get; set; }
+        public string ProductBrand { get; set; }
+        public int Amount { get; set; }
+        public byte[] Picture { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderModel> OrderModels { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }
