@@ -27,17 +27,17 @@ namespace Accounting.App
 
         private void frmHome_Load(object sender, EventArgs e)
         {
-            //    Refresh();
+            RefreshGrid();
         }
 
-        //void Refresh()
-        //{
-        //    using (UnitOfWork db = new UnitOfWork())
-        //    {
-        //        dgvOrders.AutoGenerateColumns = false;
-        //        dgvOrders.DataSource = db.OrderRepository.Get();
-        //    }
-        //}
+        void RefreshGrid()
+        {
+            using (UnitOfWork db = new UnitOfWork())
+            {
+                dgvOrders.AutoGenerateColumns = false;
+                dgvOrders.DataSource = db.OrderRepository.Get();
+            }
+        }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {

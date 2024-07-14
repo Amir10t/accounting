@@ -41,10 +41,6 @@
             this.btnOrder = new System.Windows.Forms.Button();
             this.btnMobile = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -57,11 +53,7 @@
             this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column4,
-            this.Column5,
-            this.Column6});
+            this.Column1});
             this.dgvOrders.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvOrders.Location = new System.Drawing.Point(0, 43);
             this.dgvOrders.Name = "dgvOrders";
@@ -196,39 +188,9 @@
             // Column1
             // 
             this.Column1.DataPropertyName = "OrderID";
-            this.Column1.HeaderText = "OrdeID";
+            this.Column1.HeaderText = "OrderID";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "ProductID";
-            this.Column2.HeaderText = "ProductID";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Visible = false;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Amount";
-            this.Column4.HeaderText = "Amount";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "Description";
-            this.Column5.HeaderText = "Description";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "Date";
-            this.Column6.HeaderText = "Date";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
             // 
             // frmHome
             // 
@@ -267,9 +229,5 @@
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.ToolStripButton btnRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }
