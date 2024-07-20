@@ -19,6 +19,7 @@ namespace Accounting.DataLayer
         public int Amount { get; set; }
         public string Description { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
+        public string ProductName { get; set; }
     
         public virtual Product Product { get; set; }
     }

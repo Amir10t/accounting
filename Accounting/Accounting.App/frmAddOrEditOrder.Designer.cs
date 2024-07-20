@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cbMobiles = new System.Windows.Forms.ComboBox();
+            this.cbProducts = new System.Windows.Forms.ComboBox();
             this.nudAmount = new System.Windows.Forms.NumericUpDown();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.rbAutoAmount = new System.Windows.Forms.RadioButton();
@@ -40,13 +40,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).BeginInit();
             this.SuspendLayout();
             // 
-            // cbMobiles
+            // cbProducts
             // 
-            this.cbMobiles.FormattingEnabled = true;
-            this.cbMobiles.Location = new System.Drawing.Point(10, 12);
-            this.cbMobiles.Name = "cbMobiles";
-            this.cbMobiles.Size = new System.Drawing.Size(229, 24);
-            this.cbMobiles.TabIndex = 0;
+            this.cbProducts.FormattingEnabled = true;
+            this.cbProducts.Location = new System.Drawing.Point(10, 12);
+            this.cbProducts.Name = "cbProducts";
+            this.cbProducts.Size = new System.Drawing.Size(229, 24);
+            this.cbProducts.TabIndex = 0;
             // 
             // nudAmount
             // 
@@ -151,7 +151,7 @@
             this.Controls.Add(this.rbAutoAmount);
             this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.nudAmount);
-            this.Controls.Add(this.cbMobiles);
+            this.Controls.Add(this.cbProducts);
             this.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmAddOrEditOrder";
@@ -174,6 +174,6 @@
         private System.Windows.Forms.Button btnSumbit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbMobiles;
+        private System.Windows.Forms.ComboBox cbProducts;
     }
 }

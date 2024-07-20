@@ -64,17 +64,17 @@
     <Compile Include="frmHome.Designer.cs">
       <DependentUpon>frmHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mobiles\frmAddOrEditMobile.cs">
+    <Compile Include="Products\frmAddOrEditProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mobiles\frmAddOrEditMobile.Designer.cs">
-      <DependentUpon>frmAddOrEditMobile.cs</DependentUpon>
+    <Compile Include="Products\frmAddOrEditProduct.Designer.cs">
+      <DependentUpon>frmAddOrEditProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mobiles\frmMobile.cs">
+    <Compile Include="Products\frmProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mobiles\frmMobile.Designer.cs">
-      <DependentUpon>frmMobile.cs</DependentUpon>
+    <Compile Include="Products\frmProduct.Designer.cs">
+      <DependentUpon>frmProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -84,11 +84,11 @@
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mobiles\frmAddOrEditMobile.resx">
-      <DependentUpon>frmAddOrEditMobile.cs</DependentUpon>
+    <EmbeddedResource Include="Products\frmAddOrEditProduct.resx">
+      <DependentUpon>frmAddOrEditProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mobiles\frmMobile.resx">
-      <DependentUpon>frmMobile.cs</DependentUpon>
+    <EmbeddedResource Include="Products\frmProduct.resx">
+      <DependentUpon>frmProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

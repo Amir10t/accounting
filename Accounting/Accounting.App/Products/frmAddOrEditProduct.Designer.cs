@@ -1,6 +1,6 @@
 ﻿namespace Accounting.App.Mobiles
 {
-    partial class frmAddOrEditMobile
+    partial class frmAddOrEditProduct
     {
         /// <summary>
         /// Required designer variable.
@@ -141,7 +141,7 @@
             0,
             0});
             // 
-            // frmAddOrEditMobile
+            // frmAddOrEditProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -156,11 +156,11 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "frmAddOrEditMobile";
+            this.Name = "frmAddOrEditProduct";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "اضافه کردن";
-            this.Load += new System.EventHandler(this.frmAddOrEditMobile_Load);
+            this.Load += new System.EventHandler(this.frmAddOrEditProduct_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).EndInit();

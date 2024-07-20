@@ -39,8 +39,8 @@ namespace Accounting.App
                 {
                     Order order = new Order()
                     {
-                        ProductID = Convert.ToInt32(cbMobiles.SelectedValue.ToString()),
-                        //MobileModel = cbMobiles.Text,
+                        ProductID = Convert.ToInt32(cbProducts.SelectedValue.ToString()),
+                        ProductName = cbProducts.Text,
                         Date = DateTime.Now,
                         Amount = (int)nudAmount.Value,
                         Description = txtDescription.Text
@@ -55,8 +55,8 @@ namespace Accounting.App
                 using (UnitOfWork db = new UnitOfWork())
                 {
                     var order = db.OrderRepository.GetById(OrderID);
-                    order.ProductID = Convert.ToInt32(cbMobiles.SelectedValue.ToString());
-                    //order.MobileModel = cbMobiles.Text;
+                    order.ProductID = Convert.ToInt32(cbProducts.SelectedValue.ToString());
+                    order.ProductName = cbProducts.Text;
                     order.Amount = (int)nudAmount.Value;
                     order.Description = txtDescription.Text;
 
@@ -71,7 +71,7 @@ namespace Accounting.App
         {
             using (UnitOfWork db = new UnitOfWork())
             {
-                List<MobileList> list = new List<MobileList>();
+                List<ProductList> list = new List<ProductList>();
                 if (OrderID != 0)
                 {
                     this.Text = "ویرایش سفارش";
@@ -79,20 +79,20 @@ namespace Accounting.App
                     var order = db.OrderRepository.GetById(OrderID);
                     nudAmount.Value = order.Amount;
                     txtDescription.Text = order.Description;
-                    //list.Add(new MobileList() { MobileID = order.ProductID, MobileModel = order.MobileModel });
+                    list.Add(new ProductList() { ProductID = order.ProductID, ProductName = order.ProductName });
                 }
                 else
                 {
-                    list.Add(new MobileList() { MobileID = 0, MobileModel = "انتخاب کنید" });
+                    list.Add(new ProductList() { ProductID = 0, ProductName = "انتخاب کنید" });
                 }
                 var products = db.ProductRepository.Get();
-                //foreach (var product in products)
-                //{
-                //    list.Add(new MobileList() { MobileID = product.MobileID, MobileModel = product.Model });
-                //}
-                cbMobiles.DataSource = list;
-                cbMobiles.DisplayMember = "MobileModel";
-                cbMobiles.ValueMember = "MobileID";
+                foreach (var product in products)
+                {
+                    list.Add(new ProductList() { ProductID = product.ProductID, ProductName = product.ProductName });
+                }
+                cbProducts.DataSource = list;
+                cbProducts.DisplayMember = "ProductName";
+                cbProducts.ValueMember = "ProductID";
             }
         }
     }

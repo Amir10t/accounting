@@ -4,13 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Accounting_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Accounting_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Order">
           <Key>
             <PropertyRef Name="OrderID" />
           </Key>
           <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="Amount" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="150" />
           <Property Name="Date" Type="datetime" />
@@ -45,8 +46,7 @@
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Accounting_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -60,6 +60,7 @@
           <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Date" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Order_Product" FromRole="Order" ToRole="Product" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -101,6 +102,7 @@
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="Accounting_DBModel.Order">
               <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />

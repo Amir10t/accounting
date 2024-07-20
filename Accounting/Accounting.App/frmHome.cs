@@ -19,12 +19,6 @@ namespace Accounting.App
             InitializeComponent();
         }
 
-        private void btnMobile_Click(object sender, EventArgs e)
-        {
-            //    frmMobile frm = new frmMobile();
-            //    frm.ShowDialog();
-        }
-
         private void frmHome_Load(object sender, EventArgs e)
         {
             RefreshGrid();
@@ -41,50 +35,56 @@ namespace Accounting.App
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            //    using (UnitOfWork db = new UnitOfWork())
-            //    {
-            //        //dgvOrders.DataSource = db.OrderRepository.Get(o => o..Contains(txtSearch.Text) || o.Description.Contains(txtSearch.Text));
-            //    }
+            using (UnitOfWork db = new UnitOfWork())
+            {
+                dgvOrders.DataSource = db.OrderRepository.Get(o => o.ProductName.Contains(txtSearch.Text) || o.Description.Contains(txtSearch.Text));
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //    using (UnitOfWork db = new UnitOfWork())
-            //    {
-            //        int OrderID = (int)dgvOrders.CurrentRow.Cells[0].Value;
-            //        var order = db.OrderRepository.GetById(OrderID);
-            //        if (MessageBox.Show($"ایا از حذف {order.Product} مطمین هستید", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            //        {
-            //            db.OrderRepository.Delete(order);
-            //            db.Save();
-            //            Refresh();
-            //        }
-            //    }
+            using (UnitOfWork db = new UnitOfWork())
+            {
+                int OrderID = (int)dgvOrders.CurrentRow.Cells[0].Value;
+                var order = db.OrderRepository.GetById(OrderID);
+                if (MessageBox.Show($"ایا از حذف {order.Product} مطمین هستید", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    db.OrderRepository.Delete(order);
+                    db.Save();
+                    RefreshGrid();
+                }
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            //    Refresh();
-            //    txtSearch.Text = "";
+            RefreshGrid();
+            txtSearch.Text = "";
         }
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            //    frmAddOrEditOrder frm = new frmAddOrEditOrder();
-            //    if (frm.ShowDialog() == DialogResult.OK)
-            //    {
-            //        Refresh();
-            //    }
+            frmAddOrEditOrder frm = new frmAddOrEditOrder();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                RefreshGrid();
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            //    frmAddOrEditOrder frm = new frmAddOrEditOrder();
-            //    frm.OrderID = (int)dgvOrders.CurrentRow.Cells[0].Value;
-            //    if (frm.ShowDialog() == DialogResult.OK)
-            //    {
-            //        Refresh();
-            //    }
+            frmAddOrEditOrder frm = new frmAddOrEditOrder();
+            frm.OrderID = (int)dgvOrders.CurrentRow.Cells[0].Value;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                RefreshGrid();
+            }
+        }
+
+        private void btnProductClick(object sender, EventArgs e)
+        {
+            frmProduct frm = new frmProduct();
+            frm.ShowDialog();
         }
     }
 }

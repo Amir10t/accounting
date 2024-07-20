@@ -39,8 +39,13 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
-            this.btnMobile = new System.Windows.Forms.Button();
+            this.btnProduct = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -53,7 +58,12 @@
             this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
+            this.Column1,
+            this.Column2,
+            this.Column6,
+            this.Column3,
+            this.Column4,
+            this.Column5});
             this.dgvOrders.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvOrders.Location = new System.Drawing.Point(0, 43);
             this.dgvOrders.Name = "dgvOrders";
@@ -121,7 +131,7 @@
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.btnEdit);
             this.groupBox1.Controls.Add(this.btnOrder);
-            this.groupBox1.Controls.Add(this.btnMobile);
+            this.groupBox1.Controls.Add(this.btnProduct);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox1.Location = new System.Drawing.Point(627, 0);
             this.groupBox1.Name = "groupBox1";
@@ -171,19 +181,19 @@
             this.btnOrder.UseVisualStyleBackColor = true;
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
-            // btnMobile
+            // btnProduct
             // 
-            this.btnMobile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMobile.Image = global::Accounting.App.Properties.Resources.icons8_medical_mobile_app_64;
-            this.btnMobile.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMobile.Location = new System.Drawing.Point(6, 12);
-            this.btnMobile.Name = "btnMobile";
-            this.btnMobile.Size = new System.Drawing.Size(137, 88);
-            this.btnMobile.TabIndex = 0;
-            this.btnMobile.Text = "موبایل";
-            this.btnMobile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnMobile.UseVisualStyleBackColor = true;
-            this.btnMobile.Click += new System.EventHandler(this.btnMobile_Click);
+            this.btnProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProduct.Image = global::Accounting.App.Properties.Resources.icons8_medical_mobile_app_64;
+            this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnProduct.Location = new System.Drawing.Point(6, 12);
+            this.btnProduct.Name = "btnProduct";
+            this.btnProduct.Size = new System.Drawing.Size(137, 88);
+            this.btnProduct.TabIndex = 0;
+            this.btnProduct.Text = "محصول";
+            this.btnProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnProduct.UseVisualStyleBackColor = true;
+            this.btnProduct.Click += new System.EventHandler(this.btnProductClick);
             // 
             // Column1
             // 
@@ -191,6 +201,43 @@
             this.Column1.HeaderText = "OrderID";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "ProductID";
+            this.Column2.HeaderText = "ProductID";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Visible = false;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "ProductName";
+            this.Column6.HeaderText = "نام محصول";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Amount";
+            this.Column3.HeaderText = "قیمت";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Description";
+            this.Column4.HeaderText = "توضیحات";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Date";
+            this.Column5.HeaderText = "تاریخ";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // frmHome
             // 
@@ -223,11 +270,16 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripTextBox txtSearch;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnMobile;
+        private System.Windows.Forms.Button btnProduct;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.ToolStripButton btnRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

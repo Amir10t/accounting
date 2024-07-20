@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Accounting.ViewModel.Mobiles
 {
-    public class MobileList
+    public class ProductList
     {
-        public int MobileID { get; set; }
-        public string MobileModel { get; set; }
+        public int ProductID { get; set; }
+        public string ProductName { get; set; }
     }
 }
