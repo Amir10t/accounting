@@ -167,6 +167,7 @@
             this.Column1.HeaderText = "ProductID";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
             // 
             // Column2
             // 
@@ -197,6 +198,8 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dgvProduct);
             this.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaximumSize = new System.Drawing.Size(700, 500);
+            this.MinimumSize = new System.Drawing.Size(700, 500);
             this.Name = "frmProduct";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

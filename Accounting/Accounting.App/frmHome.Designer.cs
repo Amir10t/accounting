@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.dgvOrders = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnSetting = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -40,12 +46,6 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -71,6 +71,50 @@
             this.dgvOrders.RowTemplate.Height = 24;
             this.dgvOrders.Size = new System.Drawing.Size(627, 510);
             this.dgvOrders.TabIndex = 1;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "OrderID";
+            this.Column1.HeaderText = "OrderID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "ProductID";
+            this.Column2.HeaderText = "ProductID";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Visible = false;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "ProductName";
+            this.Column6.HeaderText = "نام محصول";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Amount";
+            this.Column3.HeaderText = "قیمت";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Description";
+            this.Column4.HeaderText = "توضیحات";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Date";
+            this.Column5.HeaderText = "تاریخ";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // toolStrip1
             // 
@@ -195,50 +239,6 @@
             this.btnProduct.UseVisualStyleBackColor = true;
             this.btnProduct.Click += new System.EventHandler(this.btnProductClick);
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "OrderID";
-            this.Column1.HeaderText = "OrderID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "ProductID";
-            this.Column2.HeaderText = "ProductID";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Visible = false;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "ProductName";
-            this.Column6.HeaderText = "نام محصول";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Amount";
-            this.Column3.HeaderText = "قیمت";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Description";
-            this.Column4.HeaderText = "توضیحات";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "Date";
-            this.Column5.HeaderText = "تاریخ";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -248,10 +248,12 @@
             this.Controls.Add(this.dgvOrders);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.MaximumSize = new System.Drawing.Size(800, 600);
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "frmHome";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "صفحه ی اصلی";
+            this.Text = "نرم افزار حسابداری چرتکه";
             this.Load += new System.EventHandler(this.frmHome_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.toolStrip1.ResumeLayout(false);
