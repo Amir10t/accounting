@@ -30,14 +30,15 @@
         {
             this.cbProducts = new System.Windows.Forms.ComboBox();
             this.nudAmount = new System.Windows.Forms.NumericUpDown();
-            this.txtAmount = new System.Windows.Forms.TextBox();
-            this.rbAutoAmount = new System.Windows.Forms.RadioButton();
-            this.rbOwnAmount = new System.Windows.Forms.RadioButton();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.btnSumbit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.nudNumber = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumber)).BeginInit();
             this.SuspendLayout();
             // 
             // cbProducts
@@ -62,45 +63,13 @@
             0,
             0});
             this.nudAmount.Name = "nudAmount";
-            this.nudAmount.Size = new System.Drawing.Size(129, 23);
+            this.nudAmount.Size = new System.Drawing.Size(216, 23);
             this.nudAmount.TabIndex = 1;
             this.nudAmount.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            // 
-            // txtAmount
-            // 
-            this.txtAmount.Location = new System.Drawing.Point(10, 85);
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.ReadOnly = true;
-            this.txtAmount.Size = new System.Drawing.Size(129, 23);
-            this.txtAmount.TabIndex = 2;
-            // 
-            // rbAutoAmount
-            // 
-            this.rbAutoAmount.AutoSize = true;
-            this.rbAutoAmount.Location = new System.Drawing.Point(145, 87);
-            this.rbAutoAmount.Name = "rbAutoAmount";
-            this.rbAutoAmount.Size = new System.Drawing.Size(138, 21);
-            this.rbAutoAmount.TabIndex = 3;
-            this.rbAutoAmount.TabStop = true;
-            this.rbAutoAmount.Text = "قیمت دهی خودکار";
-            this.rbAutoAmount.UseVisualStyleBackColor = true;
-            this.rbAutoAmount.Click += new System.EventHandler(this.radioButton1_Click);
-            // 
-            // rbOwnAmount
-            // 
-            this.rbOwnAmount.AutoSize = true;
-            this.rbOwnAmount.Location = new System.Drawing.Point(180, 59);
-            this.rbOwnAmount.Name = "rbOwnAmount";
-            this.rbOwnAmount.Size = new System.Drawing.Size(103, 21);
-            this.rbOwnAmount.TabIndex = 4;
-            this.rbOwnAmount.TabStop = true;
-            this.rbOwnAmount.Text = "قیمت دلخواه";
-            this.rbOwnAmount.UseVisualStyleBackColor = true;
-            this.rbOwnAmount.CheckedChanged += new System.EventHandler(this.rbOwnAmount_CheckedChanged);
             // 
             // txtDescription
             // 
@@ -138,18 +107,53 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "کالا : ";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(232, 63);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 17);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "قیمت :‌ ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(106, 92);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 17);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "تعداد :‌ ";
+            // 
+            // nudNumber
+            // 
+            this.nudNumber.Location = new System.Drawing.Point(10, 86);
+            this.nudNumber.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudNumber.Name = "nudNumber";
+            this.nudNumber.Size = new System.Drawing.Size(90, 23);
+            this.nudNumber.TabIndex = 10;
+            this.nudNumber.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // frmAddOrEditOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(295, 353);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.nudNumber);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSumbit);
             this.Controls.Add(this.txtDescription);
-            this.Controls.Add(this.rbOwnAmount);
-            this.Controls.Add(this.rbAutoAmount);
-            this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.nudAmount);
             this.Controls.Add(this.cbProducts);
             this.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -162,6 +166,7 @@
             this.Text = "افزودن سفارش";
             this.Load += new System.EventHandler(this.frmAddOrEditOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,13 +174,13 @@
 
         #endregion
         private System.Windows.Forms.NumericUpDown nudAmount;
-        private System.Windows.Forms.TextBox txtAmount;
-        private System.Windows.Forms.RadioButton rbAutoAmount;
-        private System.Windows.Forms.RadioButton rbOwnAmount;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Button btnSumbit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbProducts;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown nudNumber;
     }
 }

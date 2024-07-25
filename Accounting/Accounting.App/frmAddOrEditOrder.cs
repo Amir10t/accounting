@@ -21,16 +21,6 @@ namespace Accounting.App
             InitializeComponent();
         }
 
-        private void radioButton1_Click(object sender, EventArgs e)
-        {
-            txtAmount.ReadOnly = false;
-        }
-
-        private void rbOwnAmount_CheckedChanged(object sender, EventArgs e)
-        {
-            txtAmount.ReadOnly = true;
-        }
-
         private void btnSumbit_Click(object sender, EventArgs e)
         {
             if (OrderID == 0)
@@ -43,6 +33,7 @@ namespace Accounting.App
                         ProductName = cbProducts.Text,
                         Date = DateTime.Now,
                         Amount = (int)nudAmount.Value,
+                        Number = (int)nudNumber.Value,
                         Description = txtDescription.Text
                     };
                     db.OrderRepository.Insert(order);
@@ -58,6 +49,7 @@ namespace Accounting.App
                     order.ProductID = Convert.ToInt32(cbProducts.SelectedValue.ToString());
                     order.ProductName = cbProducts.Text;
                     order.Amount = (int)nudAmount.Value;
+                    order.Number = (int)nudNumber.Value;
                     order.Description = txtDescription.Text;
 
                     db.OrderRepository.Update(order);
@@ -78,6 +70,7 @@ namespace Accounting.App
                     btnSumbit.Text = "ویرایش";
                     var order = db.OrderRepository.GetById(OrderID);
                     nudAmount.Value = order.Amount;
+                    nudNumber.Value = order.Number;
                     txtDescription.Text = order.Description;
                     list.Add(new ProductList() { ProductID = order.ProductID, ProductName = order.ProductName });
                 }
