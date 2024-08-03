@@ -12,7 +12,7 @@
 >> You Can Add your Products Brands, Edit them or Delete. <br>
 >> Create & Edit & Delete Orders.
 > ## Language
->> The language app is PERSIAN.
+>> This App Supports PERSIAN Now.
 
 <br>
 
