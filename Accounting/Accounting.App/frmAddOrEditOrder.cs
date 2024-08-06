@@ -20,45 +20,6 @@ namespace Accounting.App
         {
             InitializeComponent();
         }
-
-        private void btnSumbit_Click(object sender, EventArgs e)
-        {
-            if (OrderID == 0)
-            {
-                using (UnitOfWork db = new UnitOfWork())
-                {
-                    Order order = new Order()
-                    {
-                        ProductID = Convert.ToInt32(cbProducts.SelectedValue.ToString()),
-                        ProductName = cbProducts.Text,
-                        Date = DateTime.Now,
-                        Amount = (int)nudAmount.Value,
-                        Number = (int)nudNumber.Value,
-                        Description = txtDescription.Text
-                    };
-                    db.OrderRepository.Insert(order);
-                    db.Save();
-                    DialogResult = DialogResult.OK;
-                }
-            }
-            else
-            {
-                using (UnitOfWork db = new UnitOfWork())
-                {
-                    var order = db.OrderRepository.GetById(OrderID);
-                    order.ProductID = Convert.ToInt32(cbProducts.SelectedValue.ToString());
-                    order.ProductName = cbProducts.Text;
-                    order.Amount = (int)nudAmount.Value;
-                    order.Number = (int)nudNumber.Value;
-                    order.Description = txtDescription.Text;
-
-                    db.OrderRepository.Update(order);
-                    db.Save();
-                    DialogResult = DialogResult.OK;
-                }
-            }
-        }
-
         private void frmAddOrEditOrder_Load(object sender, EventArgs e)
         {
             using (UnitOfWork db = new UnitOfWork())
@@ -69,7 +30,7 @@ namespace Accounting.App
                     this.Text = "ویرایش سفارش";
                     btnSumbit.Text = "ویرایش";
                     var order = db.OrderRepository.GetById(OrderID);
-                    nudAmount.Value = order.Amount;
+                    nudAmount.Value = order.Amount/order.Number;
                     nudNumber.Value = order.Number;
                     txtDescription.Text = order.Description;
                     list.Add(new ProductList() { ProductID = order.ProductID, ProductName = order.ProductName });
@@ -86,6 +47,55 @@ namespace Accounting.App
                 cbProducts.DataSource = list;
                 cbProducts.DisplayMember = "ProductName";
                 cbProducts.ValueMember = "ProductID";
+            }
+        }
+
+        private void btnSumbit_Click(object sender, EventArgs e)
+        {
+            if (OrderID == 0)
+            {
+                using (UnitOfWork db = new UnitOfWork())
+                {
+                    Order order = new Order()
+                    {
+                        ProductID = Convert.ToInt32(cbProducts.SelectedValue.ToString()),
+                        ProductName = cbProducts.Text,
+                        Date = DateTime.Now,
+                        Amount = (int)nudAmount.Value * (int)nudNumber.Value,
+                        Number = (int)nudNumber.Value,
+                        Description = txtDescription.Text
+                    };
+                    db.OrderRepository.Insert(order);
+                    db.Save();
+                    DialogResult = DialogResult.OK;
+                }
+            }
+            else
+            {
+                using (UnitOfWork db = new UnitOfWork())
+                {
+                    var order = db.OrderRepository.GetById(OrderID);
+                    order.ProductID = Convert.ToInt32(cbProducts.SelectedValue.ToString());
+                    order.ProductName = cbProducts.Text;
+                    order.Amount = (int)nudAmount.Value * (int)nudNumber.Value;
+                    order.Number = (int)nudNumber.Value;
+                    order.Description = txtDescription.Text;
+
+                    db.OrderRepository.Update(order);
+                    db.Save();
+                    DialogResult = DialogResult.OK;
+                }
+            }
+        }
+
+
+        private void cbProducts_DropDownClosed(object sender, EventArgs e)
+        {
+            using (UnitOfWork db = new UnitOfWork())
+            {
+                var productID = Convert.ToInt32(cbProducts.SelectedValue.ToString());
+                var product = db.ProductRepository.GetById(productID);
+                nudAmount.Value = product.Amount;
             }
         }
     }

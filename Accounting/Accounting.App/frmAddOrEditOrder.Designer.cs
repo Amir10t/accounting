@@ -48,6 +48,7 @@
             this.cbProducts.Name = "cbProducts";
             this.cbProducts.Size = new System.Drawing.Size(229, 24);
             this.cbProducts.TabIndex = 0;
+            this.cbProducts.DropDownClosed += new System.EventHandler(this.cbProducts_DropDownClosed);
             // 
             // nudAmount
             // 

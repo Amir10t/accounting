@@ -230,7 +230,7 @@
             // Column3
             // 
             this.Column3.DataPropertyName = "Amount";
-            this.Column3.HeaderText = "قیمت";
+            this.Column3.HeaderText = "قیمت کل";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
