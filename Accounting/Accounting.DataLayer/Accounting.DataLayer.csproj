@@ -75,6 +75,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\GenericRepository.cs" />
+    <Compile Include="User.cs">
+      <DependentUpon>AccountingModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="AccountingModel.edmx">

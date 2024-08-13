@@ -8,6 +8,7 @@
         <EntityTypeShape EntityType="Accounting_DBModel.Order" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Accounting_DBModel.Product" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="Accounting_DBModel.FK_Order_Product" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Accounting_DBModel.User" Width="1.5" PointX="0.75" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
