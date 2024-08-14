@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Accounting.App.Mobiles;
 using Accounting.DataLayer.Context;
+using Accounting.App.Users;
 
 namespace Accounting.App
 {
@@ -21,7 +22,17 @@ namespace Accounting.App
 
         private void frmHome_Load(object sender, EventArgs e)
         {
-            RefreshGrid();
+            this.Visible = false;
+            frmAuthentication frm = new frmAuthentication();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                this.Visible = true;
+                RefreshGrid();
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
 
         void RefreshGrid()
