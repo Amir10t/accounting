@@ -48,16 +48,16 @@ namespace Accounting.App.Users
             {
                 var username = txtUserName.Text;
                 var pass = txtPass.Text;
-                User user = db.UserRepository.Get(u => u.UserName == username).First();
-                if (user != null)
+                bool any_user = db.UserRepository.Get(u => u.UserName == username).Any();
+                if (any_user)
                 {
+                    User user = db.UserRepository.Get(u => u.UserName == username).First();
                     if (user.Password == pass)
                     {
                         DialogResult = DialogResult.OK;
                     }
                     else {
                         MessageBox.Show("رمز عبور اشتباه است.", "هشدار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
                     }
                 }
                 else {
