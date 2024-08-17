@@ -14,6 +14,8 @@ namespace Accounting.App.Users
 {
     public partial class frmAuthentication : Form
     {
+        public int userID = 0;
+
         public frmAuthentication()
         {
             InitializeComponent();
@@ -54,6 +56,7 @@ namespace Accounting.App.Users
                     User user = db.UserRepository.Get(u => u.UserName == username).First();
                     if (user.Password == pass)
                     {
+                        this.userID = user.UserID;
                         DialogResult = DialogResult.OK;
                     }
                     else {

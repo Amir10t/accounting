@@ -28,6 +28,11 @@ namespace Accounting.App
             {
                 this.Visible = true;
                 RefreshGrid();
+                using (UnitOfWork db = new UnitOfWork())
+                {
+                    var user = db.UserRepository.GetById(frm.userID);
+                    lblUser.Text = $"{user.UserName} خوش آمدید";
+                }
             }
             else
             {
