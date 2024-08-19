@@ -78,6 +78,14 @@ namespace Accounting.App.Mobiles
                 var product = db.ProductRepository.GetById(ProductID);
                 if (MessageBox.Show($"ایا از حذف {product.ProductName} مطمین هستید", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
+                    var product_orders = db.OrderRepository.Get(o => o.ProductID == ProductID);
+                    if (product_orders != null)
+                    {
+                        foreach (var order in product_orders)
+                        {
+                            db.OrderRepository.Delete(order);
+                        }
+                    }
                     db.ProductRepository.Delete(product);
                     db.Save();
                     RefreshGrid();
