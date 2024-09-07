@@ -42,7 +42,7 @@ namespace Accounting.App
                 var products = db.ProductRepository.Get();
                 foreach (var product in products)
                 {
-                    list.Add(new ProductList() { ProductID = product.ProductID, ProductName = product.ProductName });
+                    list.Add(new ProductList() { ProductID = product.ProductID, ProductName = product.ProductName+" "+product.ProductBrand });
                 }
                 cbProducts.DataSource = list;
                 cbProducts.DisplayMember = "ProductName";
