@@ -32,6 +32,9 @@ namespace Accounting.App
                 {
                     var user = db.UserRepository.GetById(frm.userID);
                     lblUser.Text = $"{user.UserName} خوش آمدید";
+                    var orders = db.OrderRepository.Get();
+                    int benefit = BenefitCalculator();
+                    lblBenefit.Text = $"سود کلی شما : {Convert.ToString(benefit)}";
                 }
             }
             else
@@ -46,6 +49,23 @@ namespace Accounting.App
             {
                 dgvOrders.AutoGenerateColumns = false;
                 dgvOrders.DataSource = db.OrderRepository.Get();
+            }
+            int benefit = BenefitCalculator();
+            lblBenefit.Text = $"سود کلی شما : {Convert.ToString(benefit)}";
+        }
+
+        private int BenefitCalculator()
+        {
+            using (UnitOfWork db = new UnitOfWork())
+            {
+                var orders = db.OrderRepository.Get();
+                int benefit = 0;
+                foreach (var order in orders)
+                {
+                    benefit += Convert.ToInt32(order.Amount);
+                }
+
+                return benefit;
             }
         }
 

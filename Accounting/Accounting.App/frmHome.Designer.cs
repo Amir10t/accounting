@@ -49,6 +49,7 @@
             this.btnProduct = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblBenefit = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -253,7 +254,8 @@
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblUser});
+            this.lblUser,
+            this.lblBenefit});
             this.statusStrip1.Location = new System.Drawing.Point(0, 528);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(627, 25);
@@ -265,6 +267,15 @@
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(151, 20);
             this.lblUser.Text = "toolStripStatusLabel1";
+            // 
+            // lblBenefit
+            // 
+            this.lblBenefit.Name = "lblBenefit";
+            this.lblBenefit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblBenefit.Size = new System.Drawing.Size(461, 20);
+            this.lblBenefit.Spring = true;
+            this.lblBenefit.Text = "toolStripStatusLabel1";
+            this.lblBenefit.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             // 
             // frmHome
             // 
@@ -316,5 +327,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblUser;
+        private System.Windows.Forms.ToolStripStatusLabel lblBenefit;
     }
 }
